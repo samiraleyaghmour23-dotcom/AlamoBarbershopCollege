@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- ALAMO CITY BARBER COLLEGE · Demo Website · index.html -->
+<!-- Abrir directo en el navegador o subir a cualquier hosting -->
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Alamo City Barber College</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#090909;--dark:#111;--card:#181818;--gold:#c8962e;--gold-l:#e8b84b;
+  --white:#f0f0f0;--gray:#888;--border:#222;--red:#b32b2b;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden}
+.page{display:none;min-height:100vh}
+.page.active{display:block}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 5%;background:rgba(9,9,9,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--gold);letter-spacing:2px;cursor:pointer}
+.logo span{color:var(--white)}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;padding:8px 14px;transition:.2s;cursor:pointer;border-bottom:2px solid transparent}
+.nav-links a:hover,.nav-links a.active-link{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--black);border:none;padding:10px 22px;font-weight:700;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:.2s;white-space:nowrap}
+.nav-cta:hover{background:var(--gold-l)}
+
+/* HERO */
+#hero-sec{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero-img-col{position:absolute;right:0;top:0;bottom:0;width:45%;overflow:hidden;z-index:1}
+.hero-img-col img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.hero-content{position:relative;z-index:2;max-width:600px;padding:120px 5%}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,9vw,6.5rem);line-height:.9;color:var(--white);margin-bottom:20px}
+.hero-title span{color:var(--gold)}
+.hero-sub{color:var(--gray);font-size:1rem;line-height:1.7;margin-bottom:30px}
+
+/* SECTIONS */
+section{padding:90px 5%}
+.big-title{font-family:'Bebas Neue',sans-serif;font-size:3rem;margin-bottom:20px}
+.big-title span{color:var(--gold)}
+.divider{width:50px;height:3px;background:var(--gold);margin-bottom:30px}
+
+/* UTILS */
+.reveal{opacity:0;transform:translateY(30px);transition:0.8s ease-out}
+.reveal.vis{opacity:1;transform:translateY(0)}
+.btn-g{background:var(--gold);color:var(--black);padding:14px 30px;font-weight:700;border:none;cursor:pointer;text-transform:uppercase}
+.btn-o{background:transparent;color:var(--white);padding:14px 30px;border:1px solid var(--border);cursor:pointer;text-transform:uppercase;margin-left:10px}
+
+/* FORM */
+.form-box{background:var(--card);padding:40px;border:1px solid var(--border)}
+.fg{margin-bottom:20px}
+.fg label{display:block;color:var(--gold);font-size:0.8rem;margin-bottom:8px;text-transform:uppercase}
+.fg input, .fg select, .fg textarea{width:100%;background:var(--black);border:1px solid var(--border);color:white;padding:12px}
+
+/* FOOTER */
+footer{background:var(--dark);padding:60px 5%;border-top:1px solid var(--border);color:var(--gray);text-align:center}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="goTo('home')">ACBC <span>·</span> Alamo City</div>
+  <ul class="nav-links">
+    <li><a onclick="goTo('home')" id="nl-home" class="active-link">Home</a></li>
+    <li><a onclick="goTo('about')" id="nl-about">About</a></li>
+    <li><a onclick="goTo('services')" id="nl-services">Services</a></li>
+    <li><a onclick="goTo('programs')" id="nl-programs">Programs</a></li>
+    <li><a onclick="goTo('contact')" id="nl-contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="goTo('contact')">Book Now</button>
+</nav>
+
+<div class="page active" id="page-home">
+  <div id="hero-sec">
+    <div class="hero-img-col">
+      <img src="https://www.alamocitybarbercollege.com/wp-content/uploads/layerslider/Home-Page-Slider/ACBC-Slide-21.jpg" alt="Barber College"/>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">Alamo<br>City<br><span>Barber</span><br>College</h1>
+      <p class="hero-sub">Educación profesional de barbería y servicios de alta calidad desde 2009 en San Antonio, TX.</p>
+      <div class="btns">
+        <button class="btn-g" onclick="goTo('contact')">Reservar Cita</button>
+        <button class="btn-o" onclick="goTo('programs')">Ver Cursos</button>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:var(--dark)">
+    <div class="reveal">
+      <h2 class="big-title">Nuestros <span>Servicios</span></h2>
+      <div class="divider"></div>
+      <p>Cortes realizados por estudiantes bajo supervisión de instructores licenciados. Calidad profesional a precios increíbles.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <section>
+    <h2 class="big-title">Acerca de <span>Nosotros</span></h2>
+    <div class="divider"></div>
+    <p>Alamo City Barber College fue fundado en 2009 con la misión de brindar una educación de calidad en el arte de la barbería.</p>
+  </section>
+</div>
+
+<!-- SERVICES -->
+<div class="page" id="page-services">
+  <section>
+    <h2 class="big-title">Servicios al <span>Cliente</span></h2>
+    <div class="divider"></div>
+    <ul>
+      <li>Corte de Cabello</li>
+      <li>Afeitado con Toalla Caliente</li>
+      <li>Diseño de Barba</li>
+      <li>Faciales Rejuvenecedores</li>
+    </ul>
+  </section>
+</div>
+
+<!-- PROGRAMS -->
+<div class="page" id="page-programs">
+  <section>
+    <h2 class="big-title">Programas de <span>Estudio</span></h2>
+    <div class="divider"></div>
+    <p>Ofrecemos el programa de Barbería Clase A (1500 horas) y el curso puente para cosmetólogos.</p>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <section>
+    <div class="form-box">
+      <h2 class="big-title">Solicitar <span>Cita</span></h2>
+      <div class="fg"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+      <div class="fg"><label>Teléfono</label><input type="tel" placeholder="(210) 000-0000"></div>
+      <div class="fg">
+        <label>Servicio</label>
+        <select>
+          <option>Selecciona...</option>
+          <option>Corte</option>
+          <option>Afeitado</option>
+          <option>Barba</option>
+        </select>
+      </div>
+      <button class="btn-g" style="width:100%">Enviar Solicitud</button>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>© 2025 Alamo City Barber College. Todos los derechos reservados.</p>
+  <p>8910 Bandera Rd #209, San Antonio, TX 78250</p>
+</footer>
+
+<script>
+function goTo(p){
+  document.querySelectorAll('.page').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(x => x.classList.remove('active-link'));
+  document.getElementById('page-'+p).classList.add('active');
+  document.getElementById('nl-'+p).classList.add('active-link');
+  window.scrollTo(0,0);
+}
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
